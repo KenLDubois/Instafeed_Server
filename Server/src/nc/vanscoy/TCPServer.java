@@ -26,7 +26,7 @@ public class TCPServer extends JFrame implements Runnable, WindowListener {
 	static JTextArea output = new JTextArea("Ready...\n");
 	static List<Client> clients = new ArrayList<Client>();
 	static List<String> messages = new ArrayList<String>();
-	static List<Rating> ratings = new ArrayList<Rating>();
+	static ArrayList<Rating> ratings = new ArrayList<Rating>();
 	
 	public	TCPServer() {
 		//build interface
@@ -50,7 +50,7 @@ public class TCPServer extends JFrame implements Runnable, WindowListener {
 			server = new ServerSocket(8000);
 			//start additional server threads
 			go = true;
-			new BroadCast().start();
+//			new BroadCast().start();
 		} catch (Exception e) {
 			output.append("Server launch failed...\n");
 			return;
@@ -74,12 +74,32 @@ public class TCPServer extends JFrame implements Runnable, WindowListener {
 		}
 		output.append("Server is no longer accepting clients...\n");
 	}
-
-	//a server thread to broadcast text messages to all connected clients
-	class BroadCast extends Thread {
-		@Override
-		public void run() {
-			output.append("Broadcasting enabled...\n");
+	
+//	//a server thread to broadcast text messages to all connected clients
+//	class BroadCast extends Thread {
+//		@Override
+//		public void run() {
+//			
+//			output.append("Broadcasting enabled...\n");
+//			while(go) {
+//				//allow other threads to run
+//				Thread.yield();
+//				//check for clients and messages
+//				if(messages.size() > 0 && clients.size() > 0) {
+//					Rating rating = ratings.get(0);
+//					for(int x=0;x<clients.size();x++)
+//						try {
+//							clients.get(x).out.writeObject("this is a test");
+//						} catch (IOException e) {
+//							output.append("Error writing to client...\n");
+//							clients.remove(x);
+//						}
+//					messages.remove(0);
+//				}
+//			}
+			
+			
+//			output.append("Broadcasting enabled...\n");
 //			while(go) {
 //				//allow other threads to run
 //				Thread.yield();
@@ -96,11 +116,8 @@ public class TCPServer extends JFrame implements Runnable, WindowListener {
 //					messages.remove(0);
 //				}
 //			}
-			
-			
-			
-		}
-	}
+//		}
+//	}
 
 	@Override
 	public void windowClosing(WindowEvent arg0) {

@@ -13,19 +13,24 @@ public class Rating implements Serializable {
     public Double Latitude;
     public Double Longitude;
     
-    public Rating(Business business, float starRating){
+    public Rating(Business business, float starRating, Double lat, Double longi, String user){
 
         RatedBusiness = business;
         StarRating = starRating;
         RatingDate = new Date();
+        Latitude = lat;
+        Longitude = longi;
+        UserName = user;
     }
 
-    public Rating(Business business, float starRating, String title, String description){
+    public Rating(Business business, float starRating, String title, String description, Double lat, Double longi, String user){
         RatedBusiness = business;
         StarRating = starRating;
         RatingDate = new Date();
         Title = title;
         Description = description;
+        Latitude = lat;
+        Longitude = longi;
     }
 
 }
