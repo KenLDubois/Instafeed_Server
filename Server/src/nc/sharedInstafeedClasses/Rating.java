@@ -31,6 +31,7 @@ public class Rating implements Serializable {
         Description = description;
         Latitude = lat;
         Longitude = longi;
+        UserName = user;
     }
 
 }
