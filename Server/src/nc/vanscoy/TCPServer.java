@@ -2,6 +2,9 @@
 //Vanscoy
 //F2015
 
+// Edited by Ken Dubois
+// December 2019
+
 package nc.vanscoy;
 
 import java.io.*;
@@ -74,50 +77,6 @@ public class TCPServer extends JFrame implements Runnable, WindowListener {
 		}
 		output.append("Server is no longer accepting clients...\n");
 	}
-	
-//	//a server thread to broadcast text messages to all connected clients
-//	class BroadCast extends Thread {
-//		@Override
-//		public void run() {
-//			
-//			output.append("Broadcasting enabled...\n");
-//			while(go) {
-//				//allow other threads to run
-//				Thread.yield();
-//				//check for clients and messages
-//				if(messages.size() > 0 && clients.size() > 0) {
-//					Rating rating = ratings.get(0);
-//					for(int x=0;x<clients.size();x++)
-//						try {
-//							clients.get(x).out.writeObject("this is a test");
-//						} catch (IOException e) {
-//							output.append("Error writing to client...\n");
-//							clients.remove(x);
-//						}
-//					messages.remove(0);
-//				}
-//			}
-			
-			
-//			output.append("Broadcasting enabled...\n");
-//			while(go) {
-//				//allow other threads to run
-//				Thread.yield();
-//				//check for clients and messages
-//				if(messages.size() > 0 && clients.size() > 0) {
-//					String msg = messages.get(0);
-//					for(int x=0;x<clients.size();x++)
-//						try {
-//							clients.get(x).out.writeObject(msg);
-//						} catch (IOException e) {
-//							output.append("Error writing to client...\n");
-//							clients.remove(x);
-//						}
-//					messages.remove(0);
-//				}
-//			}
-//		}
-//	}
 
 	@Override
 	public void windowClosing(WindowEvent arg0) {

@@ -45,12 +45,7 @@ public class Client implements Runnable {
 			try {
 								
 				Object obj = in.readObject();
-				
 
-//				if(obj instanceof String) {
-//					TCPServer.messages.add(obj.toString());
-//				}
-				
 				if(obj instanceof Rating) {
 					
 					Rating newRating = (Rating)obj;
@@ -120,15 +115,6 @@ public class Client implements Runnable {
 						}
 					}
 					
-//					try {
-//						String receivedFeedback = "Content request recived";
-//						this.out.writeObject(receivedFeedback);
-//						out.flush();
-//						TCPServer.output.append("Request for content recieved and sent.\n");
-//						
-//					} catch (Exception e) {
-//						TCPServer.output.append("Error sending response to client...\n");
-//					}
 				}
 								
 			} catch (Exception e) {
